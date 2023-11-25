@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>个人博客</title>
+    <link rel="stylesheet" href="reset.css">
+</head>
+<style>
+    /* 设置边框 */
+    #outown{width: 700px;
+
+            height: 1000px;
+
+            margin: 0 auto;
+
+            padding: 3px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            background: linear-gradient(-45deg, transparent 10px, rgb(9, 23, 222) 0) bottom right,
+            
+            linear-gradient(45deg, transparent 10px, rgb(9, 23, 222) 0) bottom left,
+
+            linear-gradient(135deg, transparent 10px, rgb(9, 23, 222) 0) top left,
+
+            linear-gradient(-135deg, transparent 10px, rgb(9, 23, 222) 0) top right;   
+
+            background-size: 50% 50%;
+
+            background-repeat: no-repeat;
+        }
+    #own{width: 100%;
+
+        height: 100%; 
+
+        background: linear-gradient(-45deg, transparent 8px, rgb(0, 0, 0) 0) bottom right,
+            
+        linear-gradient(45deg, transparent 8px, rgb(0, 0, 0) 0) bottom left,
+
+        linear-gradient(135deg, transparent 8px, rgb(0, 0, 0) 0) top left,
+
+        linear-gradient(-135deg, transparent 8px, rgb(0, 0, 0) 0) top right;
+
+        background-size: 50% 50%;
+
+        background-repeat: no-repeat; 
+     }
+  
+
+        .befcube{position: absolute;
+             background:linear-gradient(135deg,transparent 8px,blue  8px 80px,transparent 80px 100% );
+             width: 300px;height: 300px;
+            
+        }
+    .textcube{margin: auto;
+        text-shadow: 0 0 10px #7b00ff;
+         font-size: 40px;
+         color: rgb(80, 5, 254);
+        /* animation: jump 7s infinite alternate; */
+        animation: huxi 7s infinite alternate;
+}
+   /* 设置旋转照片墙 */
+    body{perspective: 5000px;
+        font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+    }
+   .cube{width: 120px;
+    height: 120px
+    ;position: relative;
+    margin: 40px 90px 0 90px ;
+      transform-style: preserve-3d;
+      display: inline-block;
+      visibility: hidden;
+    }
+    .c{width: 120px ;
+        height: 120px;
+    }
+     .cube>div{width: 120px;
+        height: 120px;
+        opacity: 1;
+        position: absolute;
+    }
+    .left{transform:rotateY(90deg) translateZ(-60px);
+        border: 1px solid rgb(179, 1, 255);
+    }
+    .right{transform:rotateY(90deg) translateZ(60px);
+        border: 1px solid rgb(179, 1, 255);
+    }
+    .before{transform:rotateX(180deg) translateZ(60px);
+        border: 1px solid rgb(179, 1, 255);
+    }
+    .behind{transform:rotateX(180deg) translateZ(-60px);
+        border: 1px solid rgb(179, 1, 255);
+    }
+    .up{transform:rotateX(90deg) translateZ(60px);
+        border: 1px solid rgb(179, 1, 255);
+    }
+    .below{transform:rotateX(90deg) translateZ(-60px);
+        border: 1px solid rgb(179, 1, 255);}
+    .cube{animation: revolve 20s infinite linear;
+    }
+    .cube div{animation: switch 10s infinite linear;
+    }
+ @keyframes revolve
+        {0%{transform: rotateX(0deg) rotateZ(0deg);
+}
+        100%{transform: rotateX(1turn) rotateZ(1turn);
+}
+    }
+ @keyframes switch{0%{background-color: rgb(255, 0, 0);}
+ 25%{background-color: rgb(206, 243, 2);}50%{background-color: rgb(9, 54, 252);}75%{background-color: rgb(11, 254, 27);}
+100%{background-color: rgb(255, 0, 0);}}
+@keyframes jump{0%{opacity: 0.5;transform: translate(0,0);}/* jump动画不会用 */
+50%{opacity: 1;transform: translate(0,-15px);}
+100%{opacity: 0.5;transform: translate(0,0);}}
+@keyframes huxi {
+	    from {
+	        text-shadow:  0px 0px 20px #9500ff;opacity: 0.5;transform: translate(0,0);
+	    }
+        50%{text-shadow: 0 -10px 20px #bf00ff;opacity: 1;transform: translate(0,-15px);}
+	    to {
+	        text-shadow: 0px 0px 20px #e100ff;opacity: 0.5;transform: translate(0,0);
+	    }
+	}
+
+/* 按钮样式： */
+.sabo{font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    width:120px;
+    height: 40px;
+     align-content: center;
+    position: absolute;
+    top: 250px;
+    left: 380px;
+    text-align: center;
+    font-size: 10px;
+    line-height: 30px;
+    color: aliceblue;
+    cursor: pointer;
+    background: linear-gradient(30deg,transparent 10%,rgb(98, 0, 255) 10% 95% ,rgb(155, 16, 206)95% )
+}
+.sabo2{visibility:visible;
+    display: block;
+    width:120px;
+    height: 40px; 
+    text-align: center;
+    position: absolute;
+    top: 250px;
+    left: 380px;
+    font-size: 10px;
+    line-height: 30px;
+    color: aliceblue;
+    cursor: pointer;
+    z-index: 10;
+    border-right: 3px solid blue;
+    background: linear-gradient(30deg,transparent 10%,rgb(0, 110, 255) 10% 95% ,rgb(174, 0, 255)95% )
+}
+    .sabo2:hover{animation: move 1s;
+        animation-timing-function: steps(1,end);
+    }
+   /* 这里的move动画是在CSDN上看到的按钮样式，通过clip-path来剪切盒子 */
+    @keyframes move{
+           0%{
+            clip-path: inset(20% -5px  60%  0);
+            transform: translate(-6px,5px);
+            visibility: visible;
+           }
+           10%{
+            clip-path: inset(50% -5px  30%  0);
+            transform: translate(6px,-5px);
+           }
+           20%{
+            clip-path: inset(20% -5px  60%  0);
+            transform: translate(5px,0px);
+
+            }
+            30%{
+                clip-path: inset(80% -5px  5%  0);
+            transform: translate(-8px,5px);
+            }
+            40%{
+                clip-path: inset(0 -5px  80%  0);
+            transform: translate(-4px,-3px);
+
+            }
+            50%{
+                clip-path: inset(50% -5px  30%  0);
+            transform: translate(-6px,-5px);
+            }
+            60%{
+                clip-path: inset(80% -5px  5%  0);
+            transform: translate(-7px,5px);
+
+            }
+            70%{
+                clip-path: inset(0 -5px  80%  0);
+            transform: translate(3px,6px);
+            }
+            80%{
+                clip-path: inset(50% -5px  30%  0);
+            transform: translate(5px,5px);
+
+            }
+            90%{
+                clip-path: inset(20% -5px  60%  0);
+            transform: translate(6px,-5px);
+
+            }
+            100%{
+                clip-path: inset(0 -5px  80%  0);
+            transform: translate(1px,5px);
+
+            }
+       }
+/* 这是照着自己的思路设计的布局，以及网上学到的按钮样式*/
+/* 开始设置其它布局 */
+#own{display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    color: rgb(3, 200, 255);}
+    /* 这是整体的盒子 */
+#box1{width: 400px;
+    height: 350px;
+    text-shadow: 0 0 10px rgb(98, 0, 255);
+    text-align: center;
+}
+p{line-height: 0;
+    margin: 10px 0;
+}
+#box1 > * {
+    padding: 10px 0;
+    flex: 1 100%;
+}
+    .sec{display: flex;
+        justify-content: space-around 
+        ;width: 400px;
+        }
+    div{justify-content: flex-start;
+        display: flex;
+        line-height: 25px;
+    }
+    /* 加个酷酷的边框*/
+   
+    div .outbor{width: 600px;
+        padding: 2px;
+         background: linear-gradient(-135deg, transparent 10px, rgb(88, 5, 255) 10px 100%)
+        }
+    div .bor{padding: 5px;
+        position: relative;
+        background: linear-gradient(-135deg, transparent 9px, rgb(0, 0, 0) 0);
+        border-left:5px solid rgb(161, 9, 255);
+    }
+        /* 给边框上切角 */
+    .auto{align-content: center;
+        display: inline-flex;
+    }
+    .bottom{height: 112px;
+             display: flex; 
+           flex-wrap: wrap;
+            align-content: space-around;
+}
+    /* 开始下一部分的布局 */
+    span.bot{width: 200px;
+        text-align: left;
+    }
+    span.title{width: 100px;
+        height: 40px;
+        margin-top: 20px;
+    }
+    /* 开始下一部分的布局 */
+    #body{display: flex;
+        width: 600px;
+        flex-wrap: wrap;
+        margin:auto;
+    }
+    ul{display: flex;
+        flex-wrap: wrap;
+    }
+    li{width: 250px;
+    margin: 20px 0;
+    text-align: center;
+    }
+</style>
+<body background="图片墙\v2-7b2f1ba369613556347972a546e3b21c_r.jpg" style="background-size:100% 100%">
+    <div id="outown"><div id="own">
+<!-- 照片墙前面的东西 -->
+<div class="befcube"><span class="textcube">我是江博</span></div>
+        <!-- 照片墙 -->
+        <section class="cube">  
+            <div class="before"><img src="图片墙\7bd963d1acceceeebc8204803e447763.jpg" alt="" class="c"></div>
+            <div class="behind"><img src="图片墙\OIP-C (1).jfif" alt="" class="c"></div>
+            <div class="left"><img src="图片墙\OIP-C.jfif" alt="" class="c"></div>
+            <div class="right"><img src="图片墙\v2-0b12f03d832cb9f189ffe4230b344e51_720w.jpg" alt="" class="c"></div>
+            <div class="up"><img src="图片墙\v2-13f1ee55689c8563aaf094e213fa3c7b_r.jpg" alt="" class="c"></div>
+            <div class="below"><img src="图片墙\v2-f837a3e3f89232af327a7e2c0bcfbc0b_r.jpg" alt="" class="c"></div>
+            <!-- 按钮 -->
+       </section>
+       <div class="sabo">我要进链时代！</div> 
+       <div class="sabo2">点这里</div>
+      <!-- 文本介绍 -->
+       <section id="box1">
+        <p style="color:rgb(60, 0, 255);">学习方向：前端</p>
+        <div class="sec"> 
+        <span>2022级</span><span>|</span><span>电子科技大学</span><span>|</span><span>信息与软件工程</span>
+      </div>
+        <div><span style="color:rgb(60, 0, 255);"> 自我介绍：</span>真编程小白，动力源自喜欢</div>
+        <div class="auto">努力学习前端技术，我要进链时代</div>
+       <div><span style="color: rgb(60, 0, 255);">兴趣爱好：</span> 羽毛球，打电动</div>
+       <div class="bottom">
+        <span class="bot">18岁</span><span class="bot">电话:16679087673</span>
+        <span class="bot">四川成都</span><span class="bot">123456.com</span>
+       </div>
+       </section>
+       <!-- 下一层文本介绍 -->
+       <section id="body">
+        <div><span class="title" style="color: yellow;font-size: 25px;">所选方向</span></div>
+        <div class="outbor"><div class="bor">第一次学习前端，我知道了通过前端的学习，我能够写出带有自己风格的网页，我发现我对前端有种情有独钟的喜欢，我很享受设计前端的过程，
+            随着我学习进度的增加，我对网页的架构与样式有了更深的了解，一点点的补充自己的想法，就如同创造一个自己的小世界一般，而将自己的小世界展示给他人是无比欣悦的。
+            想进入链时代工作室，一是想结交更多朋友，能够一起交流，二是能够在今后学习的更多的知识与技术。
+        </div></div>
+        <div><span class="title" style="color: yellow;font-size: 25px;">荣誉技能</span><img src=" "alt=""></div>
+    <div><ul>
+    <div class="outbor"><div  class="bor"><ul>
+        <li>三好学生</li>
+        <li>微积分课代表</li>
+        <li>共青团员</li>
+        <li>成电学生</li>
+        <li>校会成员</li>
+        <li>链时代会长接班人(Bushi</li>
+    </ul></div></div>
+        <div><span class="title" style="color: yellow;font-size: 25px;">自我介绍</span><img src="" alt=""></div>
+        <div class="outbor"><div class="bor">性格随和,很好相处,乐于钻研难题，不怕遇到困难，写这个页面是在网上浏览是受到了赛博朋克风格的启发，于是也想写出带有个人风格的自我介绍页面，因此这个页面也就应运而生了</div>
+       </section>
+    </div></div></div>
+</body>
+<script>
+    var sabo2=document.getElementsByClassName("sabo2")[0];
+    var textcube=document.getElementsByClassName("textcube")[0];
+    var cube=document.getElementsByClassName("cube")[0];
+   sabo2.addEventListener('click',function(){textcube.style.visibility='hidden';
+   cube.style.visibility='visible'} )
+  
+</script>
+</html>
